@@ -16,7 +16,7 @@ const textToSpeech = new TextToSpeechV1(
 textToSpeech
   .synthesize({
     text: contents,
-    voice:  "de-DE_DieterVoice", // Optional voice
+    voice:  "en-US_AllisonVoice", // Optional voice
     accept: 'audio/wav' // default is audio/ogg; codec=opus
   })
   .pipe(fs.createWriteStream('output.wav'));
