@@ -13,17 +13,17 @@ def api():
     if request.method == 'POST':
         return parse_request()
     if request.method == 'GET':
-        return return_request()
+        time=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        if request.get_json() is True:
+            return json.dumps({'success':'true','time':time})
+        else:
+            return json.dumps({'success':'false','time':time})
     else:
         abort(401)
         return 'ERROR'
 
 def parse_request():
     return "Y U SEND POST"
-
-def return_request():
-    time=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    return json.dumps({'success':'true','time':time})
 
 # request.args.get('key', '')
 
