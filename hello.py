@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 import datetime, json
+import os
 app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
@@ -52,3 +53,10 @@ def check_for_drug(userId, drugName):
 # Debug DB
     # dataObject = read_user_data('123456')
     # print(json.dumps(dataObject, indent=2, separators=(',', ': ')))
+
+def speak_name(personsName):
+	with open('DATA.txt','w') as dataFile:
+		json.dump(personsName, dataFile)
+	os.system('node texttospeechv1.js')
+
+
