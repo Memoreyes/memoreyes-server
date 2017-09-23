@@ -8,7 +8,7 @@ def api():
     time=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     requestingUserId = request.form['userId']
     f = request.files['photo']
-    f.save('/home/memoreyes/memoreyes-server/uploaded_image.jpg')
+    f.save('/root/memoreyes-server/uploaded_image.jpg')
     return json.dumps({'success':'true','time':time})
 
 # returns a complete set of data for a given user
